@@ -1,0 +1,26 @@
+============================================================
+kixbt ShieldScan — wallet security report (demo mode)
+============================================================
+Address    : 0xd8da6bf26964af9d7eed9e03e53415d37aa96045
+Network    : ethereum-mainnet @ block 23000000
+Scanned at : 2026-11-16T14:23:10.112Z
+ETH balance: 12.345 ETH | tx count: 1337 | contract wallet: no
+
+RISK SCORE : 90/100  —  CRITICAL
+Checked    : 8 tokens, 57 allowance pairs, 4 active approvals (2 unlimited, 1 to unknown spenders)
+
+Findings:
+
+[HIGH] Unlimited USDC approval to Uniswap V3 SwapRouter
+  USDC allowance is 2^256-1 (unlimited) for spender 0xE592427A0AEce92De3Edee1F18E0157C05861564 (Uniswap V3 SwapRouter). That contract can move ALL of your USDC at any time, now and in the future.
+  -> Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day.
+
+[HIGH] Unlimited DAI approval to Uniswap Permit2
+  DAI allowance is 2^256-1 (unlimited) for spender 0x000000000022D473030F116dDEE9F6B43aC78BA3 (Uniswap Permit2). That contract can move ALL of your DAI at any time, now and in the future.
+  -> Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day.
+
+[MEDIUM] WETH approved to an unrecognised spender
+  Spender 0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed is not on the known-protocol list and holds an allowance of 1 WETH. Unknown spenders are the classic approval-phishing / drainer pattern.
+  -> Verify what this spender is before using it again; revoke if you do not recognise it.
+
+============================================================

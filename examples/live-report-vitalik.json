@@ -1,0 +1,49 @@
+{
+  "agent": "kixbt-shieldscan",
+  "address": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+  "scannedAt": "2026-11-16T14:23:12.624Z",
+  "blockNumber": 26428163,
+  "network": "ethereum-mainnet",
+  "mode": "live",
+  "wallet": {
+    "ethBalance": "5.798969845714110716",
+    "txCount": 5970,
+    "isContract": true
+  },
+  "riskScore": 70,
+  "grade": "HIGH",
+  "findings": [
+    {
+      "severity": "HIGH",
+      "code": "UNLIMITED_APPROVAL",
+      "title": "Unlimited USDT approval to Uniswap V3 SwapRouter",
+      "detail": "USDT allowance is 2^256-1 (unlimited) for spender 0xE592427A0AEce92De3Edee1F18E0157C05861564 (Uniswap V3 SwapRouter). That contract can move ALL of your USDT at any time, now and in the future.",
+      "recommendation": "Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day."
+    },
+    {
+      "severity": "HIGH",
+      "code": "UNLIMITED_APPROVAL",
+      "title": "Unlimited DAI approval to Uniswap Permit2",
+      "detail": "DAI allowance is 2^256-1 (unlimited) for spender 0x000000000022D473030F116dDEE9F6B43aC78BA3 (Uniswap Permit2). That contract can move ALL of your DAI at any time, now and in the future.",
+      "recommendation": "Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day."
+    },
+    {
+      "severity": "INFO",
+      "code": "EIP7702_DELEGATION",
+      "title": "Address is an EIP-7702 delegated EOA",
+      "detail": "The address holds an EIP-7702 delegation (code starts 0xef01): it is an externally-owned account that has temporarily delegated execution to a smart contract. Approvals behave the same, but a delegation can change what the account can do.",
+      "recommendation": "No action — informational only. Re-scan after changing or revoking the delegation."
+    }
+  ],
+  "summary": {
+    "tokensChecked": 8,
+    "allowancesChecked": 56,
+    "activeApprovals": 4,
+    "unlimitedApprovals": 2,
+    "unknownSpenders": 0,
+    "HIGH": 2,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "INFO": 1
+  }
+}

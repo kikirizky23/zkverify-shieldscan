@@ -1,0 +1,49 @@
+{
+  "agent": "kixbt-shieldscan",
+  "address": "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+  "scannedAt": "2026-11-16T14:23:10.196Z",
+  "blockNumber": 23000000,
+  "network": "ethereum-mainnet",
+  "mode": "demo",
+  "wallet": {
+    "ethBalance": "12.345",
+    "txCount": 1337,
+    "isContract": false
+  },
+  "riskScore": 90,
+  "grade": "CRITICAL",
+  "findings": [
+    {
+      "severity": "HIGH",
+      "code": "UNLIMITED_APPROVAL",
+      "title": "Unlimited USDC approval to Uniswap V3 SwapRouter",
+      "detail": "USDC allowance is 2^256-1 (unlimited) for spender 0xE592427A0AEce92De3Edee1F18E0157C05861564 (Uniswap V3 SwapRouter). That contract can move ALL of your USDC at any time, now and in the future.",
+      "recommendation": "Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day."
+    },
+    {
+      "severity": "HIGH",
+      "code": "UNLIMITED_APPROVAL",
+      "title": "Unlimited DAI approval to Uniswap Permit2",
+      "detail": "DAI allowance is 2^256-1 (unlimited) for spender 0x000000000022D473030F116dDEE9F6B43aC78BA3 (Uniswap Permit2). That contract can move ALL of your DAI at any time, now and in the future.",
+      "recommendation": "Revoke or cap this approval (e.g. revoke.cash or Etherscan Token Approvals) unless you actively use this spender every day."
+    },
+    {
+      "severity": "MEDIUM",
+      "code": "UNKNOWN_SPENDER",
+      "title": "WETH approved to an unrecognised spender",
+      "detail": "Spender 0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed is not on the known-protocol list and holds an allowance of 1 WETH. Unknown spenders are the classic approval-phishing / drainer pattern.",
+      "recommendation": "Verify what this spender is before using it again; revoke if you do not recognise it."
+    }
+  ],
+  "summary": {
+    "tokensChecked": 8,
+    "allowancesChecked": 57,
+    "activeApprovals": 4,
+    "unlimitedApprovals": 2,
+    "unknownSpenders": 1,
+    "HIGH": 2,
+    "MEDIUM": 1,
+    "LOW": 0,
+    "INFO": 0
+  }
+}
